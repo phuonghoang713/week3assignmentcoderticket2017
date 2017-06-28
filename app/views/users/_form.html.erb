@@ -1,0 +1,28 @@
+<h1> Sign Up!</h1>
+<div class="container">
+  <%= form_for @user do |f| %>
+  <!-- show error when login in user has problem -->
+    <% if @user.errors.size > 0 %>
+      <div class="alert alert-danger">
+        <%= @user.errors.full_messages.to_sentence %>
+      </div>
+    <% end %>
+    <div class="half-width" >
+      <%= f.text_field 'name', class: 'form-control', placeholder: 'Name'%>
+    </div>
+
+    <div class="half-width" >
+      <%= f.text_field 'email', class: 'form-control' , placeholder: 'Email'%>
+    </div>
+
+    <div class="half-width" >
+      <%= f.password_field 'password', class: 'form-control', placeholder: 'Password'%>
+    </div>
+
+    <div class="half-width">
+        <%= f.password_field 'password_confirmation', class: 'form-control', placeholder: 'Confirmation' %>
+    </div>
+
+    <%= f.submit "Sign Up", class: 'btn btn-secondary' %>
+  <% end %>
+</div>

@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :users
+#  get 'sessions/new'
+
+#  get 'users/new'
+
+
+  get 'sign_in' => 'sessions#new'
+  delete 'sign_out' => 'sessions#destroy'
+
+#  get 'index' => 'home#index'
+#  get 'test' => 'home#test'
+#  get 'test_new' => 'home#test_new'
+#  delete 'sign_out' => 'sessions#destroy'
+
   root 'events#index'
 
   resources :events do

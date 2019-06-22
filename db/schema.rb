@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170627154729) do
+ActiveRecord::Schema.define(version: 2017_06_27_154729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -24,48 +24,48 @@ ActiveRecord::Schema.define(version: 20170627154729) do
   create_table "events", force: :cascade do |t|
     t.datetime "starts_at"
     t.datetime "ends_at"
-    t.integer  "venue_id"
-    t.string   "hero_image_url"
-    t.text     "extended_html_description"
-    t.integer  "category_id"
-    t.string   "name"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.index ["category_id"], name: "index_events_on_category_id", using: :btree
-    t.index ["venue_id"], name: "index_events_on_venue_id", using: :btree
+    t.bigint "venue_id"
+    t.string "hero_image_url"
+    t.text "extended_html_description"
+    t.bigint "category_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_events_on_category_id"
+    t.index ["venue_id"], name: "index_events_on_venue_id"
   end
 
   create_table "regions", force: :cascade do |t|
-    t.string   "name"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "ticket_types", force: :cascade do |t|
-    t.integer  "event_id"
-    t.integer  "price"
-    t.string   "name"
-    t.integer  "max_quantity"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["event_id"], name: "index_ticket_types_on_event_id", using: :btree
+    t.bigint "event_id"
+    t.integer "price"
+    t.string "name"
+    t.integer "max_quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_ticket_types_on_event_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "venues", force: :cascade do |t|
-    t.string   "name"
-    t.string   "full_address"
-    t.integer  "region_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["region_id"], name: "index_venues_on_region_id", using: :btree
+    t.string "name"
+    t.string "full_address"
+    t.bigint "region_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["region_id"], name: "index_venues_on_region_id"
   end
 
   add_foreign_key "events", "categories"

@@ -14,7 +14,7 @@
             </div>
 
             <div class="col-md-6 price text-right">
-              <%= number_to_currency(ticket_type.price, unit: 'VND', precision: 0) %>
+              <%= number_to_currency(ticket_type.price, unit: 'VND', precision: 0, delimiter: '.', format: '%n %u') %>
             </div>
           </div>
           <div class="clearfix"></div>

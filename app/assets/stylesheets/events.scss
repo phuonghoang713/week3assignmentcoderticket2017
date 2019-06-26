@@ -78,12 +78,13 @@
 }
 
 .events-detail {
+    margin-left: auto;
     .sidebar {
         padding-top: 80px;
         color: rgb(233, 237, 240);
         background-color: #303B46;
-        float: left;
-        // position: fixed;
+        
+        position: fixed;
         min-height: 700px;
         height: 100%;
         p {
@@ -113,7 +114,7 @@
         }
     }
     .event-content {
-        float: right;
+        margin-left: auto;
         h3 {
             font-weight: bold;
             font-size: 25px;
